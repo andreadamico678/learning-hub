@@ -1,0 +1,14 @@
+{
+  "index.qmd": {
+    "index.html": "150ac39e"
+  },
+  "lessons/sampling.qmd": {
+    "sampling.html": "1079d0dd"
+  },
+  "lessons/aliasing-and-sampling.qmd": {
+    "aliasing-and-sampling.html": "98c3bc61"
+  },
+  "lessons/aliasing.qmd": {
+    "aliasing.html": "23400c79"
+  }
+}

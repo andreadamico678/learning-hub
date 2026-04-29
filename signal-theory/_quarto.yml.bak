@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Signal Theory Lab"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: show
+    code-summary: "Show the code"
+    highlight-style: github
+
+execute:
+  freeze: auto
+
+jupyter: python3
+

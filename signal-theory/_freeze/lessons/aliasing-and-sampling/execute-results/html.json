@@ -1,0 +1,12 @@
+{
+  "hash": "6ff983358197b11a8f6960c4d52e526e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Aliasing and Sampling\"\n---\n\n## Introduction to Aliasing\n\n::: {#cell-fig-spectrum .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![The frequency spectrum showing aliasing.](aliasing-and-sampling_files/figure-html/fig-spectrum-output-1.png){#fig-spectrum width=832 height=449}\n:::\n:::\n\n\n",
+    "supporting": [
+      "aliasing-and-sampling_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -1,0 +1,1 @@
+{"entries":[{"caption":"Moiré Pattern","key":"fig-moire","order":{"number":2,"section":[0,6,0,0,0,0,0]}},{"caption":"Time-Domain Proof of Aliasing","key":"fig-aliasing","order":{"number":1,"section":[0,4,0,0,0,0,0]}}],"headings":["introduction-to-aliasing","setup-and-parameters","signal-simulation","visualization","the-nyquist-theorem","extras-moiré-pattern"]}

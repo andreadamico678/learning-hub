@@ -1,0 +1,14 @@
+---
+title: "Learning Object-Oriented Programming"
+listing:
+  contents: notes
+  type: grid
+  sort: "date desc"
+  categories: true
+---
+
+Object Oriented Programming is one of the most important paradigms in software engineering. 
+
+It's imporant to note that this isn't intended to be an highly academic resource or even a scientific research; these are just my notes and experiences, occasionally conveyed in an informal manner.  
+
+## My Notes

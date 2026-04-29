@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Signal Theory Lab",
+    "section": "",
+    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation."
+  },
+  {
+    "objectID": "lessons/sampling.html",
+    "href": "lessons/sampling.html",
+    "title": "The Sampling Theorem",
+    "section": "",
+    "text": "The Nyquist-Shannon Sampling Theorem states that a continuous-time signal \\(x(t)\\) can be perfectly reconstructed from its samples \\(x[n]\\) if the sampling frequency \\(f_s\\) is at least twice the highest frequency component \\(f_{max}\\) of the signal.\n\\[f_s &gt; 2 f_{max}\\]"
+  },
+  {
+    "objectID": "lessons/sampling.html#introduction",
+    "href": "lessons/sampling.html#introduction",
+    "title": "The Sampling Theorem",
+    "section": "",
+    "text": "The Nyquist-Shannon Sampling Theorem states that a continuous-time signal \\(x(t)\\) can be perfectly reconstructed from its samples \\(x[n]\\) if the sampling frequency \\(f_s\\) is at least twice the highest frequency component \\(f_{max}\\) of the signal.\n\\[f_s &gt; 2 f_{max}\\]"
+  },
+  {
+    "objectID": "lessons/sampling.html#demonstration",
+    "href": "lessons/sampling.html#demonstration",
+    "title": "The Sampling Theorem",
+    "section": "Demonstration",
+    "text": "Demonstration\nLet’s visualize aliasing by sampling a sine wave at different rates.\n\n\nShow the code\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy import signal\n\n# Parameters\nf_signal = 5  # Frequency of the signal in Hz\nfs_high = 100 # High sampling rate for \"continuous\" look\nfs_low = 7    # Low sampling rate (violates Nyquist if &lt; 10Hz)\n\nt_cont = np.linspace(0, 1, fs_high)\nx_cont = np.sin(2 * np.pi * f_signal * t_cont)\n\nt_sampled = np.arange(0, 1, 1/fs_low)\nx_sampled = np.sin(2 * np.pi * f_signal * t_sampled)\n\n# Plotting\nplt.figure(figsize=(10, 6))\nplt.plot(t_cont, x_cont, label='Continuous Signal (5 Hz)', alpha=0.5)\nplt.stem(t_sampled, x_sampled, linefmt='r-', markerfmt='ro', basefmt='k-', label=f'Sampled @ {fs_low} Hz')\nplt.title('Sampling a 5 Hz Sine Wave')\nplt.xlabel('Time [s]')\nplt.ylabel('Amplitude')\nplt.legend()\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "lessons/sampling.html#observations",
+    "href": "lessons/sampling.html#observations",
+    "title": "The Sampling Theorem",
+    "section": "Observations",
+    "text": "Observations\n\nWhen \\(f_s = 7\\) Hz (which is less than \\(2 \\times 5 = 10\\) Hz), the sampled points suggest a much lower frequency signal. This is aliasing.\nTo avoid this, we should have used a sampling rate higher than 10 Hz."
+  },
+  {
+    "objectID": "lessons/sampling.html#filtered-reconstruction-example",
+    "href": "lessons/sampling.html#filtered-reconstruction-example",
+    "title": "The Sampling Theorem",
+    "section": "Filtered Reconstruction (Example)",
+    "text": "Filtered Reconstruction (Example)\nWe can use scipy.signal to design a low-pass filter to attempt reconstruction, though aliased information cannot be recovered.\n\n\nShow the code\n# Design a Butterworth filter\nb, a = signal.butter(4, 0.2) # Basic low-pass filter\nw, h = signal.freqz(b, a)\n\nplt.figure()\nplt.plot(w, 20 * np.log10(abs(h)))\nplt.title('Butterworth Filter Frequency Response')\nplt.xlabel('Normalized Frequency')\nplt.ylabel('Amplitude [dB]')\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "lessons/aliasing-and-sampling.html",
+    "href": "lessons/aliasing-and-sampling.html",
+    "title": "Aliasing and Sampling",
+    "section": "",
+    "text": "Figure 1: The frequency spectrum showing aliasing."
+  },
+  {
+    "objectID": "lessons/aliasing-and-sampling.html#introduction-to-aliasing",
+    "href": "lessons/aliasing-and-sampling.html#introduction-to-aliasing",
+    "title": "Aliasing and Sampling",
+    "section": "",
+    "text": "Figure 1: The frequency spectrum showing aliasing."
+  },
+  {
+    "objectID": "lessons/aliasing.html",
+    "href": "lessons/aliasing.html",
+    "title": "Aliasing",
+    "section": "",
+    "text": "This lesson shows a continous “analog” signal being converted to a digital signal by an ADC (Analog-to-Digital Converter). What we can observe from the results is the fact that a poorly sampled signal can become indistinguishable from a lower-frequency one."
+  },
+  {
+    "objectID": "lessons/aliasing.html#introduction-to-aliasing",
+    "href": "lessons/aliasing.html#introduction-to-aliasing",
+    "title": "Aliasing",
+    "section": "",
+    "text": "This lesson shows a continous “analog” signal being converted to a digital signal by an ADC (Analog-to-Digital Converter). What we can observe from the results is the fact that a poorly sampled signal can become indistinguishable from a lower-frequency one."
+  },
+  {
+    "objectID": "lessons/aliasing.html#setup-and-parameters",
+    "href": "lessons/aliasing.html#setup-and-parameters",
+    "title": "Aliasing",
+    "section": "Setup and Parameters",
+    "text": "Setup and Parameters\nFirst, we import our tools and define the physical properties of our signal and ADC.\n\n\nShow the code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nf_real = 6000.0   # It's too fast (Greater than f_sample/2)\nf_sample = 8000.0 # Our ADC is still at 8000 Hz\nf_alias = 2000.0  # The \"Ghost\" signal the computer will see (|6000 - 8000|)"
+  },
+  {
+    "objectID": "lessons/aliasing.html#signal-simulation",
+    "href": "lessons/aliasing.html#signal-simulation",
+    "title": "Aliasing",
+    "section": "Signal Simulation",
+    "text": "Signal Simulation\nWe simulate the “continuous” analog world using a high-resolution array, and the digital world by sampling at discrete intervals.\n\n\nShow the code\n# 1. Simulate the \"continuous\" analog world\nt_analog = np.linspace(0, 0.002, 1000) \ny_analog_real = np.sin(2 * np.pi * f_real * t_analog)\n\n# 2. Simulate the digital world (discrete sampled points)\nt_digital = np.arange(0, 0.002, 1.0 / f_sample)\ny_digital = np.sin(2 * np.pi * f_real * t_digital)\n\n# 3. Simulate the \"alias\" wave\ny_analog_alias = -np.sin(2 * np.pi * f_alias * t_analog)"
+  },
+  {
+    "objectID": "lessons/aliasing.html#visualization",
+    "href": "lessons/aliasing.html#visualization",
+    "title": "Aliasing",
+    "section": "Visualization",
+    "text": "Visualization\nFinally, we plot the results to see how the samples align with the signals.\nVisually the concept becomes very clear: the system will have no way of knowing if the blue samples reconstruct the gray signal or the red signal.\n\n\nShow the code\nplt.figure(figsize=(10, 5))\n\n# Plot the real fast wave\nplt.plot(t_analog, y_analog_real, color='gray', alpha=0.5, label=f\"Real Analog Signal ({f_real} Hz)\")\n\n# Plot the alias slow wave\nplt.plot(t_analog, y_analog_alias, color='red', linestyle='--', label=f\"Aliased Signal ({f_alias} Hz)\")\n\n# Plot the discrete samples\nplt.stem(t_digital, y_digital, basefmt=\" \", linefmt=\"blue\", markerfmt=\"bo\", label=f\"Digital Samples ({f_sample} Hz)\")\n\nplt.title(\"Time-Domain Proof of Aliasing\")\nplt.xlabel(\"Time (s)\")\nplt.ylabel(\"Amplitude\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Time-Domain Proof of Aliasing"
+  },
+  {
+    "objectID": "lessons/aliasing.html#conclusion-the-nyquist-theorem",
+    "href": "lessons/aliasing.html#conclusion-the-nyquist-theorem",
+    "title": "Aliasing",
+    "section": "Conclusion: The Nyquist Theorem",
+    "text": "Conclusion: The Nyquist Theorem\nWhat we have demonstrated is the Nyquist-Shannon Sampling Theorem. It states that to capture a signal without losing information, we must sample at a rate (\\(f_s\\)) that is at least twice the highest frequency component of the signal (\\(f_{max}\\)).\n\\[f_s &gt; 2 \\cdot f_{max}\\]\nWhen we sampled a \\(6000\\text{ Hz}\\) signal at only \\(8000\\text{ Hz}\\), we violated this rule because \\(8000\\) is not greater than \\(2 \\times 6000\\).\n\nExtras: Moirè Pattern\nAliasing is not just about signals: it’s about cameras, audio and videogames. It can be rappresented visually using the moirè pattern.\nFor me looking at this animation made the concept really click: {fig-align=“center”, fig-alt=“An animation showing the Moirè pattern”}"
+  },
+  {
+    "objectID": "lessons/aliasing.html#the-nyquist-theorem",
+    "href": "lessons/aliasing.html#the-nyquist-theorem",
+    "title": "Aliasing",
+    "section": "The Nyquist Theorem",
+    "text": "The Nyquist Theorem\nWhat we have demonstrated is the Nyquist-Shannon Sampling Theorem. It states that to capture a signal without losing information, we must sample at a rate (\\(f_s\\)) that is at least twice the highest frequency component of the signal (\\(f_{max}\\)).\n\\[f_s &gt; 2 \\cdot f_{max}\\]\nWhen we sampled a \\(6000\\text{ Hz}\\) signal at only \\(8000\\text{ Hz}\\), we violated this rule because \\(8000\\) is not greater than \\(2 \\times 6000\\)."
+  },
+  {
+    "objectID": "lessons/aliasing.html#extras-moirè-pattern",
+    "href": "lessons/aliasing.html#extras-moirè-pattern",
+    "title": "Aliasing",
+    "section": "Extras: Moirè Pattern",
+    "text": "Extras: Moirè Pattern\nAliasing is not just about signals: it’s about cameras, audio and videogames. It can be rappresented visually using the moirè pattern.\nFor me looking at this animation made the concept really click:"
+  },
+  {
+    "objectID": "lessons/aliasing.html#extras-moiré-pattern",
+    "href": "lessons/aliasing.html#extras-moiré-pattern",
+    "title": "Aliasing",
+    "section": "Extras: Moiré Pattern",
+    "text": "Extras: Moiré Pattern\nAliasing is not just about signals: it’s about cameras, audio, and video games. It can be represented visually using the Moiré pattern.\nFor me, looking at this animation made the concept really click:\n\n\n\n\n\n\nFigure 2: Moiré Pattern"
+  }
+]
