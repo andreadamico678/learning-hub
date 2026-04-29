@@ -116,6 +116,6 @@
     "href": "signal-theory/index.html",
     "title": "Welcome to the Signal Theory Lab",
     "section": "",
-    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation."
+    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation.\n\n\n\nd"
   }
 ]
