@@ -13,3 +13,5 @@ The environment is built using:
 - **SciPy** for signal processing algorithms.
 - **Matplotlib** for visualization.
 - **Quarto** for document generation.
+
+![Bloom Taxonomy](../media/image.png)
