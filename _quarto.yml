@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Learning Hub"
+  
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: oop/index.qmd
+        text: OOP
+      - href: signal-theory/index.qmd
+        text: Signal Theory
+      - href: embedded-software-engineering/index.qmd
+        text: Embedded Software Engineering
+  
+  sidebar:
+    - id: oop
+      style: "docked"
+      contents:
+        - auto: "oop/*"
+    - id: signal-theory
+      style: "docked"
+      contents:
+        - auto: "signal-theory/*"
+    - id: embedded-software-engineering
+      style: "docked"
+      contents:
+        - auto: "embedded-software-engineering/*"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: show
+
+execute:
+  freeze: auto
+
+jupyter: python3

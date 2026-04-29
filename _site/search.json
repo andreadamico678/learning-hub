@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Learning Hub Dashboard",
+    "section": "",
+    "text": "Welcome to my unified Learning Hub! Here you will find notes and projects across various subjects:\n\nObject-Oriented Programming (OOP)\nSignal Theory\nEmbedded Software Engineering\n\nUse the top navigation bar to switch between subjects."
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html",
+    "href": "signal-theory/lessons/aliasing.html",
+    "title": "Aliasing",
+    "section": "",
+    "text": "This lesson shows a continous “analog” signal being converted to a digital signal by an ADC (Analog-to-Digital Converter). What we can observe from the results is the fact that a poorly sampled signal can become indistinguishable from a lower-frequency one."
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#introduction-to-aliasing",
+    "href": "signal-theory/lessons/aliasing.html#introduction-to-aliasing",
+    "title": "Aliasing",
+    "section": "",
+    "text": "This lesson shows a continous “analog” signal being converted to a digital signal by an ADC (Analog-to-Digital Converter). What we can observe from the results is the fact that a poorly sampled signal can become indistinguishable from a lower-frequency one."
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#setup-and-parameters",
+    "href": "signal-theory/lessons/aliasing.html#setup-and-parameters",
+    "title": "Aliasing",
+    "section": "Setup and Parameters",
+    "text": "Setup and Parameters\nFirst, we import our tools and define the physical properties of our signal and ADC.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nf_real = 6000.0   # It's too fast (Greater than f_sample/2)\nf_sample = 8000.0 # Our ADC is still at 8000 Hz\nf_alias = 2000.0  # The \"Ghost\" signal the computer will see (|6000 - 8000|)"
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#signal-simulation",
+    "href": "signal-theory/lessons/aliasing.html#signal-simulation",
+    "title": "Aliasing",
+    "section": "Signal Simulation",
+    "text": "Signal Simulation\nWe simulate the “continuous” analog world using a high-resolution array, and the digital world by sampling at discrete intervals.\n\n\nCode\n# 1. Simulate the \"continuous\" analog world\nt_analog = np.linspace(0, 0.002, 1000) \ny_analog_real = np.sin(2 * np.pi * f_real * t_analog)\n\n# 2. Simulate the digital world (discrete sampled points)\nt_digital = np.arange(0, 0.002, 1.0 / f_sample)\ny_digital = np.sin(2 * np.pi * f_real * t_digital)\n\n# 3. Simulate the \"alias\" wave\ny_analog_alias = -np.sin(2 * np.pi * f_alias * t_analog)"
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#visualization",
+    "href": "signal-theory/lessons/aliasing.html#visualization",
+    "title": "Aliasing",
+    "section": "Visualization",
+    "text": "Visualization\nFinally, we plot the results to see how the samples align with the signals.\nVisually the concept becomes very clear: the system will have no way of knowing if the blue samples reconstruct the gray signal or the red signal.\n\n\nCode\nplt.figure(figsize=(10, 5))\n\n# Plot the real fast wave\nplt.plot(t_analog, y_analog_real, color='gray', alpha=0.5, label=f\"Real Analog Signal ({f_real} Hz)\")\n\n# Plot the alias slow wave\nplt.plot(t_analog, y_analog_alias, color='red', linestyle='--', label=f\"Aliased Signal ({f_alias} Hz)\")\n\n# Plot the discrete samples\nplt.stem(t_digital, y_digital, basefmt=\" \", linefmt=\"blue\", markerfmt=\"bo\", label=f\"Digital Samples ({f_sample} Hz)\")\n\nplt.title(\"Time-Domain Proof of Aliasing\")\nplt.xlabel(\"Time (s)\")\nplt.ylabel(\"Amplitude\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: Time-Domain Proof of Aliasing"
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#the-nyquist-theorem",
+    "href": "signal-theory/lessons/aliasing.html#the-nyquist-theorem",
+    "title": "Aliasing",
+    "section": "The Nyquist Theorem",
+    "text": "The Nyquist Theorem\nWhat we have demonstrated is the Nyquist-Shannon Sampling Theorem. It states that to capture a signal without losing information, we must sample at a rate (\\(f_s\\)) that is at least twice the highest frequency component of the signal (\\(f_{max}\\)).\n\\[f_s &gt; 2 \\cdot f_{max}\\]\nWhen we sampled a \\(6000\\text{ Hz}\\) signal at only \\(8000\\text{ Hz}\\), we violated this rule because \\(8000\\) is not greater than \\(2 \\times 6000\\)."
+  },
+  {
+    "objectID": "signal-theory/lessons/aliasing.html#extras-moiré-pattern",
+    "href": "signal-theory/lessons/aliasing.html#extras-moiré-pattern",
+    "title": "Aliasing",
+    "section": "Extras: Moiré Pattern",
+    "text": "Extras: Moiré Pattern\nAliasing is not just about signals: it’s about cameras, audio, and video games. It can be represented visually using the Moiré pattern.\nFor me, looking at this animation made the concept really click:\n\n\n\n\n\n\nFigure 2: Moiré Pattern"
+  },
+  {
+    "objectID": "oop/notes/oop-in-iot.html",
+    "href": "oop/notes/oop-in-iot.html",
+    "title": "OOP in IoT",
+    "section": "",
+    "text": "As we have established, OOP is everywhere. Let’s delve into what problems it solves in the context of IoT and why it’s so important for modern connected systems."
+  },
+  {
+    "objectID": "oop/notes/oop-in-iot.html#core-concepts",
+    "href": "oop/notes/oop-in-iot.html#core-concepts",
+    "title": "OOP in IoT",
+    "section": "Core Concepts",
+    "text": "Core Concepts\nIn IoT, OOP is extremely important; the structure that the paradigm offers makes systems more robust, less prone to errors, and easier to design and manage.\nOOP facilitates modular, reusable, and scalable software architectures, reducing development time and fostering adaptability.\n\nAbstraction ensures scalability for evolving IoT applications by hiding complex hardware details behind simple interfaces.\nEncapsulation improves data integrity by restricting direct access to sensitive device states or data.\nPolymorphism handles the heterogeneous data formats and communication protocols inherent to IoT.\n\nThe role of Polymorphism is definitely the more interesting one. For example: an IoT hub might use a base Communicator interface with a transmit() method. This allows the core system to send messages seamlessly through an MQTTClient formatting data as JSON, or a BluetoothClient sending raw bytes. The system just calls transmit(), and polymorphism ensures the correct protocol and formatting are applied without the main loop needing to handle the networking complexities.\n\n\n\n\n\nclassDiagram\n    class Communicator {\n        &lt;&lt;interface&gt;&gt;\n        +transmit(data)\n    }\n    class MQTTClient {\n        +transmit(data)\n        -formatJSON(data)\n    }\n    class BluetoothClient {\n        +transmit(data)\n        -formatBytes(data)\n    }\n    Communicator &lt;|.. MQTTClient\n    Communicator &lt;|.. BluetoothClient\n    \n    class IoTHub {\n        -communicator: Communicator\n        +sendMessage(data)\n    }\n    IoTHub --&gt; Communicator : uses"
+  },
+  {
+    "objectID": "oop/notes/oop-in-iot.html#oop-is-intuitive",
+    "href": "oop/notes/oop-in-iot.html#oop-is-intuitive",
+    "title": "OOP in IoT",
+    "section": "OOP is Intuitive",
+    "text": "OOP is Intuitive\nOOP is naturally suited for Human–Computer Interaction (HCI).\nBecause OOP models real-world objects, it provides an inherently intuitive framework for developers to map physical IoT devices (like lights, thermostats, and locks) to the user’s mental model, making it easier to create truly user-centric applications.\nHuman-Computer Interaction (HCI) is governed by UI/UX and OOP is applied to the backend and domain logic in this context, making the backend object-oriented promotes a more seamless interaction with an user-centric front-end.\nHowever, this interaction is only possible if we define a bridging mechanism; we will discuss how API Symmetry and Domain-Driven Design accomplish this in later articles.\n\n\n\n\n\nflowchart LR\n    User([User]) --&gt;|Interacts with| Frontend[User-Centric Front-end]\n    Frontend &lt;--&gt;|API Symmetry / DDD| Backend[Backend Domain Logic]\n    Backend &lt;--&gt;|Controls| Devices[/Physical IoT Devices/]"
+  },
+  {
+    "objectID": "oop/notes/oop-in-iot.html#oop-and-memory",
+    "href": "oop/notes/oop-in-iot.html#oop-and-memory",
+    "title": "OOP in IoT",
+    "section": "OOP and memory",
+    "text": "OOP and memory\nMemory is precious, especially in IoT where devices have very limited RAM.\nUnfortunately, dynamic polymorphism in languages like C++ relies on virtual method tables (v-tables), which introduce pointer indirection and memory overhead.\nIn heavily constrained embedded systems, strict OOP is often abandoned in favor of procedural C or statically dispatched paradigms (like Rust traits) to save cycles and bytes."
+  },
+  {
+    "objectID": "oop/notes/oop-in-iot.html#oop-iot-ml",
+    "href": "oop/notes/oop-in-iot.html#oop-iot-ml",
+    "title": "OOP in IoT",
+    "section": "OOP + IoT + ML",
+    "text": "OOP + IoT + ML\nA primary focus for the future of IoT is its integration with AI and ML models (TinyML). How OOP interacts with this depends entirely on the hardware tier.\nOn higher-level implementations (like IoT Gateways) running full operating systems, OOP and HCI-OOP frameworks can treat complex predictive ML algorithms as “objects” or plugins. This allows the system to dynamically load and seamlessly upgrade its intelligence at runtime without rewriting core infrastructure.\nHowever, on microcontrollers, polymorphically injecting or hot-swapping ML models at runtime is impossible. Memory is strictly bound.\nOn hardware like the STM32 Nucleo (which I use extensively), standard OOP-heavy runtimes are often discarded. Even generic interpreters like TensorFlow Lite for Microcontrollers (TFLM) incur too much overhead. Instead, the industry standard relies on static compilation using silicon-specific tools like STM32Cube.AI (X-CUBE-AI).\nX-CUBE-AI takes a trained neural network and compiles it directly into highly optimized, bare-metal C code. It strips away the interpreter, maps operations directly to hardware accelerators, and statically links the model into the firmware. At the edge, ML is not a dynamically dispatched object; it is a statically evaluated, procedural function call.\n\n\n\n\n\nflowchart TD\n    subgraph Gateway [IoT Gateway Tier - Dynamic]\n        A[Core System] --&gt;|Polymorphic Call| B(ML Plugin Interface)\n        B -.-&gt; C[Anomaly Detector Object]\n        B -.-&gt; D[Predictive Maintenance Object]\n    end\n\n    subgraph EdgeNode [STM32 Edge Tier - Static]\n        E[STM32Cube.AI] --&gt;|Compiles to| F[Bare-metal C Code]\n        G[Main Loop] --&gt;|Static Function Call| F\n    end\n\n\n\n\n\n\n\nConclusion\nIn conclusion, I believe OOP is not merely a paradigm that can be applied to IoT, but rather an indivisible part of it.\nIt is not a question of if we should apply the paradigm, or even why. Because OOP is such an inherent part of modeling IoT systems, our only focus is to study exactly how its core concepts apply to the physical devices we build.\nUltimately, the industry is called the Internet of Things for a reason. When we recognize that these physical ‘Things’ are inherently software ‘Objects’, IoT becomes, quite literally, an Internet of Objects."
+  },
+  {
+    "objectID": "embedded-software-engineering/index.html",
+    "href": "embedded-software-engineering/index.html",
+    "title": "Embedded Software Engineering Notes",
+    "section": "",
+    "text": "Welcome to the Embedded Software Engineering section.\n(Content coming soon)"
+  },
+  {
+    "objectID": "oop/index.html",
+    "href": "oop/index.html",
+    "title": "Learning Object-Oriented Programming",
+    "section": "",
+    "text": "Object Oriented Programming is one of the most important paradigms in software engineering.\nIt’s imporant to note that this isn’t intended to be an highly academic resource or even a scientific research; these are just my notes and experiences, occasionally conveyed in an informal manner."
+  },
+  {
+    "objectID": "oop/index.html#my-notes",
+    "href": "oop/index.html#my-notes",
+    "title": "Learning Object-Oriented Programming",
+    "section": "My Notes",
+    "text": "My Notes"
+  },
+  {
+    "objectID": "signal-theory/index.html",
+    "href": "signal-theory/index.html",
+    "title": "Welcome to the Signal Theory Lab",
+    "section": "",
+    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation."
+  }
+]

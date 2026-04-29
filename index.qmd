@@ -1,0 +1,11 @@
+---
+title: "Learning Hub Dashboard"
+---
+
+Welcome to my unified Learning Hub! Here you will find notes and projects across various subjects:
+
+- [Object-Oriented Programming (OOP)](oop/index.qmd)
+- [Signal Theory](signal-theory/index.qmd)
+- [Embedded Software Engineering](embedded-software-engineering/index.qmd)
+
+Use the top navigation bar to switch between subjects.
