@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Learning Hub"
-  
+
   navbar:
     left:
       - href: index.qmd
@@ -15,7 +15,9 @@ website:
         text: Signal Theory
       - href: embedded-software-engineering/index.qmd
         text: Embedded Software Engineering
-  
+      - href: ml/index.qmd
+        text: Machine Learning
+
   sidebar:
     - id: oop
       style: "docked"
@@ -29,6 +31,10 @@ website:
       style: "docked"
       contents:
         - auto: "embedded-software-engineering/*"
+    - id: ml
+      style: "docked"
+      contents:
+        - auto: "ml/*"
 
 format:
   html:

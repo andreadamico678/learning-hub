@@ -5,3 +5,5 @@ title: "Embedded Software Engineering Notes"
 Welcome to the Embedded Software Engineering section.
 
 *(Content coming soon)*
+
+![](../media/thing.png)

@@ -1,0 +1,14 @@
+---
+title: "Machine Learning"
+listing:
+  contents: projects
+  type: grid
+  sort: "date desc"
+  categories: true
+---
+
+Welcome to the Machine Learning section! This site is dedicated to exploring Machine Learning concepts and building practical models. 
+
+We will make heavy use of core Python data science libraries such as `numpy`, `pandas`, and `scikit-learn`.
+
+## Projects

@@ -1,0 +1,45 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #2d3436;
+    line-height: 1.6;
+}
+
+.title {
+    color: #2d3436;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+}
+
+h1, h2, h3, h4 {
+    color: #2d3436;
+    font-weight: 700;
+}
+
+.quarto-title-block {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 3rem;
+}
+
+.callout {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #2d3436 !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #0984e3 !important;
+}

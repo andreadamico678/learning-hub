@@ -1,0 +1,36 @@
+---
+title: "K-Nearest Neighbors (KNN) with CSV Data"
+date: "2026-04-30"
+categories: [classification, machine-learning, pandas]
+description: "A clean example of using KNN classification with data loaded directly from a CSV file."
+---
+
+## Introduction
+
+In this example, we move away from built-in datasets and use a simple **CSV file** to provide our data. This is a much more common scenario in real-world projects.
+
+### Loading the Data
+
+We'll use our `knn_core` module to load `data.csv`. This CSV contains random features and a target label.
+
+```{python}
+import knn_core
+
+# Load our random data from the CSV
+# 'target' is the column we want to predict
+X, y, df = knn_core.load_data_from_csv("data.csv", target_column='target')
+
+# Let's see what the data looks like
+df.head()
+```
+
+### Training and Results
+
+With the data loaded, we can now train our model and check how well it performs.
+
+```{python}
+# Train the model
+knn_model, accuracy = knn_core.train_and_evaluate_knn(X, y, n_neighbors=5)
+
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
+```

@@ -116,6 +116,41 @@
     "href": "signal-theory/index.html",
     "title": "Welcome to the Signal Theory Lab",
     "section": "",
-    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation.\n\n\n\nd"
+    "text": "Welcome to the Signal Theory Lab\nThis is a digital playground for exploring signal processing concepts.\n\nCore Topics\n\nAliasing\nFrequency Analysis (Coming soon)\nFilter Design (Coming soon)\n\n\n\nEnvironment\nThe environment is built using: - NumPy for numerical computation. - SciPy for signal processing algorithms. - Matplotlib for visualization. - Quarto for document generation."
+  },
+  {
+    "objectID": "ml/index.html",
+    "href": "ml/index.html",
+    "title": "Machine Learning",
+    "section": "",
+    "text": "Welcome to the Machine Learning section! This site is dedicated to exploring Machine Learning concepts and building practical models.\nWe will make heavy use of core Python data science libraries such as numpy, pandas, and scikit-learn."
+  },
+  {
+    "objectID": "ml/index.html#projects",
+    "href": "ml/index.html#projects",
+    "title": "Machine Learning",
+    "section": "Projects",
+    "text": "Projects"
+  },
+  {
+    "objectID": "ml/projects/knn-example.html",
+    "href": "ml/projects/knn-example.html",
+    "title": "K-Nearest Neighbors (KNN) with CSV Data",
+    "section": "",
+    "text": "In this example, we move away from built-in datasets and use a simple CSV file to provide our data. This is a much more common scenario in real-world projects.\n\n\nWe’ll use our knn_core module to load data.csv. This CSV contains random features and a target label.\n\n\nCode\nimport knn_core\n\n# Load our random data from the CSV\n# 'target' is the column we want to predict\nX, y, df = knn_core.load_data_from_csv(\"data.csv\", target_column='target')\n\n# Let's see what the data looks like\ndf.head()\n\n\n\n\n\n\n\n\n\nfeature_a\nfeature_b\ntarget\n\n\n\n\n0\n0.374540\n0.950714\n1\n\n\n1\n0.731994\n0.598658\n1\n\n\n2\n0.156019\n0.155995\n0\n\n\n3\n0.058084\n0.866176\n0\n\n\n4\n0.601115\n0.708073\n1\n\n\n\n\n\n\n\n\n\n\nWith the data loaded, we can now train our model and check how well it performs.\n\n\nCode\n# Train the model\nknn_model, accuracy = knn_core.train_and_evaluate_knn(X, y, n_neighbors=5)\n\nprint(f\"Model Accuracy: {accuracy * 100:.2f}%\")\n\n\nModel Accuracy: 90.00%\n\n\n\n\n\nUsing CSV files makes the workflow cleaner: 1. No complex preprocessing: You don’t need to manually map class names or feature names in code. 2. Portability: You can swap data.csv for any other file without changing the core logic. 3. Simplicity: It feels more like a real data science pipeline."
+  },
+  {
+    "objectID": "ml/projects/knn-example.html#introduction-to-knn",
+    "href": "ml/projects/knn-example.html#introduction-to-knn",
+    "title": "K-Nearest Neighbors (KNN) Example",
+    "section": "",
+    "text": "The K-Nearest Neighbors (KNN) algorithm is a simple, easy-to-implement supervised machine learning algorithm that can be used to solve both classification and regression problems.\nIn this example, we’ll use numpy, pandas, and scikit-learn to train a KNN classifier on data loaded from a CSV file.\n\n\nFirst, let’s load our data from iris.csv using our core module.\n\n\nCode\nimport knn_core\nimport os\n\n# Define the path to our data file\ncsv_path = \"iris.csv\"\n\n# Load the data from the CSV file\nX, y, df = knn_core.load_data_from_csv(csv_path, target_column='species')\n\n# Display the first few rows\ndf.head()\n\n\n\n\n\n\n\n\n\nsepal length (cm)\nsepal width (cm)\npetal length (cm)\npetal width (cm)\nspecies\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n\n\n\n\n\n\n\n\nNow we’ll split the data into training and testing sets, and train our KNN model.\n\n\nCode\n# Use our module to train the model and get the accuracy\nknn_model, accuracy = knn_core.train_and_evaluate_knn(X, y, n_neighbors=3)\n\nprint(f\"Model Accuracy: {accuracy * 100:.2f}%\")\n\n\nModel Accuracy: 100.00%\n\n\n\n\n\nThis simple example demonstrates how quickly we can build and evaluate a machine learning model using the standard Python ML stack. By leveraging scikit-learn, numpy, and pandas, complex algorithms become highly accessible."
+  },
+  {
+    "objectID": "ml/projects/knn-example.html#introduction",
+    "href": "ml/projects/knn-example.html#introduction",
+    "title": "K-Nearest Neighbors (KNN) with CSV Data",
+    "section": "",
+    "text": "In this example, we move away from built-in datasets and use a simple CSV file to provide our data. This is a much more common scenario in real-world projects.\n\n\nWe’ll use our knn_core module to load data.csv. This CSV contains random features and a target label.\n\n\nCode\nimport knn_core\n\n# Load our random data from the CSV\n# 'target' is the column we want to predict\nX, y, df = knn_core.load_data_from_csv(\"data.csv\", target_column='target')\n\n# Let's see what the data looks like\ndf.head()\n\n\n\n\n\n\n\n\n\nfeature_a\nfeature_b\ntarget\n\n\n\n\n0\n0.374540\n0.950714\n1\n\n\n1\n0.731994\n0.598658\n1\n\n\n2\n0.156019\n0.155995\n0\n\n\n3\n0.058084\n0.866176\n0\n\n\n4\n0.601115\n0.708073\n1\n\n\n\n\n\n\n\n\n\n\nWith the data loaded, we can now train our model and check how well it performs.\n\n\nCode\n# Train the model\nknn_model, accuracy = knn_core.train_and_evaluate_knn(X, y, n_neighbors=5)\n\nprint(f\"Model Accuracy: {accuracy * 100:.2f}%\")\n\n\nModel Accuracy: 90.00%\n\n\n\n\n\nUsing CSV files makes the workflow cleaner: 1. No complex preprocessing: You don’t need to manually map class names or feature names in code. 2. Portability: You can swap data.csv for any other file without changing the core logic. 3. Simplicity: It feels more like a real data science pipeline."
   }
 ]

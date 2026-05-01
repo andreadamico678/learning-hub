@@ -1,0 +1,13 @@
+{
+    "markdown.copyFiles.destination": {
+        "**/*": "${documentWorkspaceFolder}/media/${fileName}"
+    },
+    "[quarto]": {
+        "editor.defaultFormatter": "quarto.quarto",
+        "editor.formatOnSave": true
+    },
+    "pasteImage.path": "${projectRoot}/media",
+    "pasteImage.basePath": "${projectRoot}",
+    "pasteImage.prefix": "/",
+    "pasteImage.insertStyle": "markdown"
+}

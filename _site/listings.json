@@ -4,5 +4,11 @@
     "items": [
       "/oop/notes/oop-in-iot.html"
     ]
+  },
+  {
+    "listing": "/ml/index.html",
+    "items": [
+      "/ml/projects/knn-example.html"
+    ]
   }
 ]

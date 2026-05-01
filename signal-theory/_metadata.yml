@@ -1,0 +1,10 @@
+format:
+  html:
+    include-in-header:
+      - text: |
+          <style>
+          :root {
+              --primary-color: #27ae60;
+              --secondary-color: #2ecc71;
+          }
+          </style>
