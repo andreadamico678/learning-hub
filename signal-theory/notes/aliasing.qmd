@@ -1,5 +1,8 @@
 ---
 title: "Aliasing"
+description: ""
+date: "2026-04-28"
+categories: []
 ---
 
 ## Introduction to Aliasing

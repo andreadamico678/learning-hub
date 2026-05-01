@@ -11,4 +11,6 @@ Welcome to the Machine Learning section! This site is dedicated to exploring Mac
 
 We will make heavy use of core Python data science libraries such as `numpy`, `pandas`, and `scikit-learn`.
 
+It's imporant to note that this isn't intended to be an highly rigorous academic resource or even scientific research; these are just my notes and experiences, often conveyed in an informal manner.  
+
 ## Projects

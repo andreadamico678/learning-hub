@@ -1,15 +1,10 @@
-# Welcome to the Signal Theory Lab
+---
+title: "Learning Signal Theory"
+listing:
+  contents: notes
+  type: grid
+  sort: "date desc"
+  categories: true
+---
 
 This is a digital playground for exploring signal processing concepts. 
-
-### Core Topics
-- [Aliasing](lessons/aliasing.qmd)
-- Frequency Analysis (Coming soon)
-- Filter Design (Coming soon)
-
-### Environment
-The environment is built using:
-- **NumPy** for numerical computation.
-- **SciPy** for signal processing algorithms.
-- **Matplotlib** for visualization.
-- **Quarto** for document generation.
